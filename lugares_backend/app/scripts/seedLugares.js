@@ -1,6 +1,6 @@
 var uuid = require('uuid');
 const  models = require('../models');
-const lugar = models.lugar;
+const Lugar = models.lugar;
 
 const lugares = [ 
     {
@@ -252,28 +252,28 @@ const lugares = [
 ]
 
 const agregarLugares = async () => {
-    for (const lugar of lugares) {
+    for (const lugarData of lugares) {
         try {
-            const [lugarExistente, created] = await lugar.findOrCreate({
+            const [lugarExistente, created] = await Lugar.findOrCreate({
                 where: {
-                    nombre: lugar.nombre,
-                    longitud: lugar.longitud,
-                    latitud: lugar.latitud
+                    nombre: lugarData.nombre,
+                    longitud: lugarData.longitud,
+                    latitud: lugarData.latitud
                 },
                 defaults: {
-                    tipo: lugar.tipo,
+                    tipo: lugarData.tipo,
                     external_id: uuid.v4()
                 }
             });
             if (created) {
-                console.log(`Lugar agregado: ${lugar.nombre}`);
+                console.log(`Lugar agregado: ${lugarData.nombre}`);
             } else {
-                console.log(`Lugar ya existe: ${lugar.nombre}`);
+                console.log(`Lugar ya existe: ${lugarData.nombre}`);
             }
         } catch (error) {
-            console.error(`Error al agregar lugar: ${lugar.nombre}`, error);
+            console.error(`Error al agregar lugar: ${lugarData.nombre}`, error);
         }
     }
 };
 
-agregarLugares();
+module.exports = agregarLugares;
