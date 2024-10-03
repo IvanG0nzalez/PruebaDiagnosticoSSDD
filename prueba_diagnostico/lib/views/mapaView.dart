@@ -18,7 +18,6 @@ class MapaView extends StatefulWidget {
 }
 
 class _MapaViewState extends State<MapaView> with TickerProviderStateMixin {
-  final MapController _mapaController = MapController();
   late final AnimatedMapController _animatedMapController;
   late StreamSubscription<Position> _positionStreamSubscription;
 

@@ -1,16 +1,21 @@
-# prueba_diagnostico
+# Aplicación móvil - Prueba de Diagnóstico
 
-A new Flutter project.
+**Correo** -> `admin@admin.admin`
+**Contraseña** -> `admin`
 
-## Getting Started
+## Antes de utilizar
 
-This project is a starting point for a Flutter application.
+Para utilizar la aplicación primero es necesario **crear las ubicaciones** en el back-end de `/lugares_backend`. De lo contrario, **no se mostrará información** en el mapa y las solicitudes de búsqueda fallarán.
 
-A few resources to get you started if this is your first Flutter project:
+Al crear y ejecutar el back-end se debe **buscar la IP** del dispositivo en el que se está ejecutando el servidor. En **Windows** se utiliza el comando: ipconfig y se busca la IP en **Ethernet** o **Wi-Fi IPv4**, por ejemplo: 192.168.1.19
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Con esa dirección IP se requiere modificar el archivo `Conexion.dart` ubicado en: `./prueba_diagnostico/lib/controllers` y reemplazar la dirección IP del archivo por la obtenida previamente, por ejemplo: http://192.168.1.19:3000/api/
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Descargar e instalar la aplicación
+
+Para descargar e instalar la aplicación a un dispositivo móvil:
+1. Conectar el dispositivo al computador.
+2. Habilitar las **opciones de desarrollador** en el dispositivo para permitir:
+   - **Depuración USB**
+   - **Instalación por USB**
+3. Luego, dentro del **IDE** o desde **CMD**, seleccionar el dispositivo móvil y ejecutar el siguiente comando, estando ene el directorio `/prueba_diagnostico`: flutter run. Y la aplicación empezará a instalarse y ejecutarse en el dispositivo.

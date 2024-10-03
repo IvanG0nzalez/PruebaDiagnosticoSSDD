@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
 
+const seedLugares = require('./app/scripts/seedLugares');
+
 var app = express();
 
 // view engine setup
@@ -26,6 +28,7 @@ app.use('/api', apiRouter);
 let models = require('./app/models');
 models.sequelize.sync().then(() =>{
   console.log("Se sincronizó");
+  seedLugares();
 }).catch(err => {
   console.log(err,"ERROR!");
 });

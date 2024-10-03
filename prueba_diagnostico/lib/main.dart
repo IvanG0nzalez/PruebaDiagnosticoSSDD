@@ -1,6 +1,5 @@
  import 'package:flutter/material.dart';
 import 'package:prueba_diagnostico/views/busquedaView.dart';
-import 'package:prueba_diagnostico/views/mapaView.dart';
 import 'package:prueba_diagnostico/views/sessionView.dart';
 
 void main() {
